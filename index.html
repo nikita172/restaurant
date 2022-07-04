@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Food-Plaza Restaurant</h1>
+    </header>
+    <section id="login-section">
+        <form id="login-form" method="post">
+            <h2>Login</h2>
+            <div class="error-message" id="login-error">Invalid Credentials</div>
+            <div class="input-group input-email">
+                <img alt="Email Icon" src="icons/at-sign.svg" />
+                <input type="email" name="email" required placeholder="Email" />
+            </div>
+            <div class="input-group input-password">
+                <img alt="Password Icon" src="icons/lock.svg" />
+                <input type="password" required name="password" placeholder="Password" />
+            </div>
+            <div class="button-group">
+                <button type="submit" class="primary" id="login-btn">Login</button>
+                <button class="secondary" id="navigate-signup" type="button">Sign Up</button>
+            </div>
+
+        </form>
+    </section>
+    <section id="signup-section">
+        <form id="signup-form" method="post">
+            <h2>Signup</h2>
+            <div class="error-message" id="signup-error">Invalid Credentials</div>
+            <div class="input-group input-user">
+                <img alt="User Icon" src="icons/user.svg" />
+                <input type="text" name="name" required placeholder="Username" />
+                <span class="error-message"></span>
+            </div>
+            <div class="input-group input-email">
+                <img alt="Email Icon" src="icons/at-sign.svg" />
+                <input type="email" name="email" required placeholder="Email" />
+                <span class="error-message"></span>
+            </div>
+            <div class="input-group input-password">
+                <img alt="Password Icon" src="icons/lock.svg" />
+                <input type="password" name="password" required placeholder="Password" />
+                <span class="error-message"></span>
+            </div>
+            <div class="input-group input-confirm-password">
+                <img alt="Password Icon" src="icons/eye.svg" />
+                <input type="password" name="c_password" required placeholder="Confirm Password" />
+                <span class="error-message"></span>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="primary" id="signup-btn">Sign Up</button>
+            </div>
+            <span class="login-text">If you already have an account,<br><a href="javascript:void(0)"
+                    id="navigate-login">Login here</a></span>
+
+        </form>
+    </section>
+
+
+    <section id="order-section">
+        <div class="user-details">
+            <div id="user-details"></div>
+            <button id="cart-btn">Cart: 0 Items</button>
+            <div>
+                <button id="ordered-items" type="button"> Your Orders</button>
+                <button id="logout-btn" class="danger">Logout</button>
+            </div>
+
+        </div>
+
+
+        <h2>Please select your order!</h2>
+
+        <div class="food-menu">
+            <!-- <div class="card">
+                <img alt="Kadai Paneer" src="https://www.whiskaffair.com/wp-content/uploads/2020/08/Kadai-Paneer-2-3.jpg" />
+                <div class="card-header">
+                    <div>
+                        <h3>Kadai Paneer</h3>
+                        <span class="price">220 RS</span>
+                    </div>
+                    <div class="button-container">
+                        <button>Add</button>
+                        <div class="quantity-menu">
+                            <button><img alt="minus" src="icons/minus.svg"></button>
+                            <span>10</span>
+                            <button><img alt="plus" src="icons/plus.svg"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>    -->
+
+
+
+        </div>
+    </section>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Cart</h3>
+                <button class="close"><img src="icons/x.svg" alt="close modal"></button>
+            </div>
+            <div class="items">
+                <!-- 
+                <div class="cart-item">
+                    <span class="title">Palak Paneer</span>
+                    <span class="price">200.00</span>
+                    <div class="quantity-menu">
+                        <button><img alt="minus" src="icons/minus.svg"></button>
+                        <span>10</span>
+                        <button><img alt="minus" src="icons/plus.svg"></button>
+                    </div>
+                </div>
+                 -->
+            </div>
+            <div class="cart-footer"></div>
+        </div>
+    </div>
+    <section id="address-details">
+        <form id="address-form">
+            <div class="address-header">
+                <h3>Address</h3>
+                <button type="button" class="cross-button"><img id="cross-button" src="icons/x.svg"></button>
+            </div>
+
+            <div class="name">
+                <h5>Name*</h5>
+                <input type="text" name="name" placeholder="name" required>
+            </div>
+            <div class="mobile">
+                <h5>Mobile*</h5>
+                <input type="number" name="mobile" placeholder="mobile" required>
+            </div>
+            <div class="pincode">
+                <h5>Pincode*</h5>
+                <input type="number" name="pincode" placeholder="pincode" required>
+            </div>
+            <div class="state">
+                <h5>State*</h5>
+                <input type="text" name="state" placeholder="state" required>
+            </div>
+            <div class="address">
+                <h5>Address*</h5>
+                <input type="text" name="address" placeholder="address" required>
+            </div>
+            <div class="Location/Town">
+                <h5>Location/Town*</h5>
+                <input type="text" name="location" placeholder="location" required>
+            </div>
+            <div class="type-of-address">
+                <h5>Type of Address*</h5>
+                <div class="home">
+                    <input id="home" type="radio" name="home" value="home" required>
+                    <label for="home">Home</label>
+
+                </div>
+                <div class="office">
+                    <input id="office" type="radio" name="home" value="office">
+                    <label for="office">Office</label>
+                </div>
+            </div>
+            <div class="payment-method">
+                <h5>Payment*</h5>
+                <div class="COD">
+                    <input id="cod" type="checkbox" name="cod" value="cod" required>
+                    <label for="cod">COD</label>
+
+                </div>
+                <p>Only Cash on Delivery is Available*</p>
+            </div>
+            <button id="order-placed-button" type="submit">Place Order</button>
+
+
+        </form>
+
+    </section>
+    <section id="ordered-items-section">
+        <div id="order-header">
+            <h2>Your Orders</h2>
+            <button type="button" id="terminate-order-section"><img src="icons/x.svg"></button>
+        </div>
+        
+        <div class="orders">
+            
+               
+            
+        <!--<ul class="orders-check">
+                <div>
+                    <li>
+                        <h5>Deliver to nikita rawat</h5>
+                    </li>
+                    <li class="location">
+                        <img src="icons/map-pin.svg">
+                        <span>Rishikesh 249204>/span>
+                    </li>
+                </div>
+                <div>
+
+            
+                    <li>kadai paneer</li>
+                    <li>roti</li>
+                    <li>total:120rs</li>
+                </div>
+                <div>
+                
+
+                
+                    <button type="button">Cancel Order</button>
+                </div>
+            </ul>   -->         
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

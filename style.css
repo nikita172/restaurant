@@ -1,0 +1,515 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #e9e9e9;
+    color: #444455;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+input, button, select {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+
+.input-group input:focus {
+    border-color: #2f5174;
+}
+
+.input-group input:focus::placeholder {
+    color: #2f5174;
+}
+
+.input-email input,
+.input-password input,
+.input-user input,
+.input-confirm-password input {
+    padding-left: 36px;
+}
+.input-email img,
+.input-password img,
+.input-user img,
+.input-confirm-password img{
+    top: 7px;
+    bottom: 7px;
+    margin: auto;
+    left: 10px;
+    position: absolute;
+    height: 20px;
+}
+.button-group button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+button.secondary {
+    color: white;
+    background: rgb(2, 73, 180);
+}
+
+header {
+    background: forestgreen;
+    color: white;
+    padding: 10px;
+    
+}
+
+header h1 {
+    text-align: center;
+    
+}
+
+#login-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+#signup-section{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+#order-section {
+    display: none;
+    
+}
+
+#login-section h2 {
+    margin: 5px;
+}
+
+#login-section #login-form {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#login-form.show,
+#signup-form.show{
+    display: flex;
+}
+#signup-section #signup-form {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    display: block;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+input:focus {
+    background: rgba(80, 79, 79,0.2);
+}
+
+button {
+    background: forestgreen;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.danger {
+    background: rgb(199, 28, 28);
+}
+#order-section{
+    display: none;
+}
+
+#order-section h2 {
+    margin: 20px;
+}
+
+
+.error-message{
+    color:  red;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+}
+
+.error-message.show{
+    display: block;
+}
+
+.user-details {
+    padding: 13px 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+
+.user-details h3 {
+    color: #333;
+}
+
+.user-details span {
+    display: block;
+    color: #676767;
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 8px;
+}
+
+.food-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.food-menu .card {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0;
+}
+
+.food-menu h2 {
+    margin: 20px;
+}
+
+@keyframes rotateLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    50% {
+        transform: rotate(90deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    border: 3px solid transparent;
+    border-left-color: forestgreen;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    animation-name: rotateLoader;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    
+}
+
+
+
+.card {
+    margin: 20px;
+    background: white;
+    padding: 15px;
+    border: 1px solid lightgray;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card .card-header h3 {
+    font-weight: normal;
+}
+
+.card .card-header span {
+    color: #676767;
+    font-size: 14px;
+    color: green;
+}
+
+.quantity-menu {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.quantity-menu button {
+    display: flex;
+    margin: 0;
+    padding: 6px;
+    background: #f0f0f0;
+    border-radius: 0;
+   
+}
+
+.quantity-menu span {
+    margin: 0 12px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 900px) {
+    .food-menu .card {
+        width: 25%;
+    }    
+}
+
+@media screen and (max-width: 500px) {
+    .food-menu .card {
+        width: 100%;
+    }
+}
+
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes openModalCart {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+    animation: openModal 0.25s ;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal .modal-card {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    animation: openModalCart 0.3s;
+}
+
+.modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.modal .modal-header .close {
+    background: rgba(255, 0, 0, 0.15);
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+}
+.cart-item {
+    border: 1px solid lightgray;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+}
+
+
+.cart-item .title {
+    flex: 1;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.cart-item .price {
+    color: #228b22;
+    padding: 10px;
+}
+.cart-item .quantity-menu {
+    margin: 5px;
+}
+
+.cart-empty {
+    width: 200px;
+}
+
+#address-details{
+    position: absolute;
+    top: 80px;
+    left:0px;
+    width: 100%;   
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    
+}
+#address-details .address-header{   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#address-details .address-header .cross-button {
+    margin:0px;
+    padding: 1px;
+    background-color: #e9e9e9;
+    border-radius: 50%;
+    
+}
+#address-details h3{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  
+}
+#address-details div{
+    margin-bottom: 10px;
+}
+#address-details input{
+    width:calc(100%-10px);
+    border: 1px solid black;
+    padding:4px;
+}
+#address-details input:focus{
+    background: white;
+}
+#address-details .type-of-address div{
+    display: flex;
+    margin-bottom: 5px;
+
+}
+
+#address-details button{
+    margin: 0px;
+}
+#address-details .type-of-address{
+    margin-bottom: 0px;
+}
+#address-details #address-form .payment-method .COD label{
+    padding-top: 4px;
+}
+#address-details #address-form .payment-method .COD{
+    display: flex;
+    align-items: center;
+    
+}
+#address-details #address-form .payment-method{
+    margin-top:10px;
+}
+#address-details #address-form .payment-method p{
+    font-size: smaller;
+    margin: 0px;
+}
+
+#cross-button{
+    border-radius: 50%;
+    background-color: white;
+    padding:3px;
+    height: 20px;
+    
+}
+#ordered-items-section{
+    display: none;
+    animation: openModal 0.5s ease-in-out ;    
+}
+#ordered-items-section h2{
+    margin:25px;
+   
+    
+}
+#ordered-items-section #order-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+#ordered-items-section #order-header button{
+    background: #e9e9e9;
+}
+#ordered-items-section #order-header img{
+    background-color: #fff;
+    margin-right: 25px;
+    border-radius: 50%;
+    padding: 2px;
+}
+#ordered-items-section .orders{
+    position: absolute;
+    left:10%;
+    right: 10%;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:  center;   
+   
+}
+#ordered-items-section .orders-check{
+   border:1px solid #aeadad;
+   flex-wrap: wrap;
+   margin: 10px;
+   margin-top: 10px;
+   list-style: none;
+    background: white;
+    width:100%;
+    padding: 10px;
+    border-radius: 5px;
+    height: fit-content;
+    display: flex;
+   
+    justify-content:space-between ;
+    
+}
+#ordered-items-section .orders-check .order-item{
+    flex: 1;
+}
+#ordered-items-section h3{
+    padding-left: 10px;
+}
+
+#ordered-items-section .orders-check .location{
+    display: flex;
+    align-items: center;
+    margin-top:7px;
+    
+}
+#ordered-items-section .orders-check .location img{
+    height: 20px;
+    margin-right: 10px;
+}
+#ordered-items-section .orders-check div{
+    padding: 5px;
+}
+
